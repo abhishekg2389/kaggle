@@ -3,6 +3,8 @@ import inspect
 import heapq
 import random
 
+import numpy as np
+
 class GeneticAlgorithm():
 	def __init__(
 			self, 
@@ -50,12 +52,14 @@ class GeneticAlgorithm():
 		self.verbose = verbose
 		
 	def get_params(self):
+		params = {}
 		params['selection_fn'] = self.selection_fn
 		params['mutation_fn'] = self.mutation_fn
 		params['crossover_fn'] = self.crossover_fn
 		params['objective_fn'] = self.objective_fn
 		params['max_iter'] = self.max_iter
 		params['popu_size'] = self.popu_size
+		params['save_popu_frac'] = self.save_popu_frac
 		params['annealing'] = self.annealing
 		params['random_seed'] = self.random_seed
 		params['verbose'] = self.verbose
@@ -64,56 +68,59 @@ class GeneticAlgorithm():
 	def fit(self, X):
 		if self.popu_size == None:
 			self.popu_size = len(X)
-			
-		print "CPU: "+str(multiprocessing.cpu_count())
+		
+		n_cpu = multiprocessing.cpu_count()
+		
+		print "CPU: "+str(n_cpu)
 		print " Iter   Best Score"
 		print "------  ----------"
 		
 		counter = 0
 		while self.max_iter != counter:
 			# --- Evaluation ---
-			pool = multiprocessing.Pool(4)
+			pool = multiprocessing.Pool(n_cpu)
 			objective_objs = pool.map(self.objective_fn, X)
+			#objective_objs = map(self.objective_fn, X)
 			
 			# --- Selection ---
 			if isinstance(self.selection_fn, float):
 				if self.selection_fn >= 1:
-					selected_objs = heapq.nlargest(self.selection_fn, zip(range(self.popu_size),objective_objs), key=lambda x:x[1])
+					selected_objs = heapq.nsmallest(self.selection_fn, zip(range(self.popu_size),objective_objs), key=lambda x:x[1])
 				else:
-					selected_objs = heapq.nlargest(int(self.popu_size*self.selection_fn), zip(range(self.popu_size),objective_objs), key=lambda x:x[1])
+					selected_objs = heapq.nsmallest(int(self.popu_size*self.selection_fn), zip(range(self.popu_size),objective_objs), key=lambda x:x[1])
 			else:
 				selected_objs = self.selection_fn(X, objective_objs)
 			selected_objs = [x[0] for x in selected_objs]
 			
 			# --- Crossover ---
-			if inspect.getargspec(self.crossover_fn)[1] != None:
-				num_args = 2 + len(inspect.getargspec(self.crossover_fn)[1])
-			else:
-				num_args = 2
 			sel_size = len(selected_objs)
-			pool = multiprocessing.Pool(4)
-			print [tuple(X[random.sample(range(sel_size), num_args)]) for i in range(2)]
-			crossover_objs = pool.map(self.crossover_fn, [((1,2)),((3,4))])
+			pool = multiprocessing.Pool(n_cpu)
+			crossover_objs = pool.map(self.crossover_fn, [X[random.sample(range(sel_size), 2)] for i in range(self.popu_size-sel_size)])
+			# crossover_objs = map(self.crossover_fn, [X[random.sample(range(sel_size), 2)] for i in range(self.popu_size-sel_size)])
 			
-			# --- Mutation
-			pool = multiprocessing.Pool(4)
+			# --- Mutation ----
+			pool = multiprocessing.Pool(n_cpu)
 			pool.map(self.mutation_fn, crossover_objs)
+			# map(self.mutation_fn, crossover_objs)
 			
 			X = np.r_[X[selected_objs], np.array(crossover_objs)]
 			counter += 1
 			
-			print str(counter)+"\t"+str(max(objective_objs))
+			print str(counter)+"\t"+str(min(objective_objs))
 		
-		with multiprocessing.Pool(4) as e:
-			objective_objs = e.map(self.objective_fn, X)
+		pool = multiprocessing.Pool(n_cpu)
+		objective_objs = pool.map(self.objective_fn, X)
+		# objective_objs = map(self.objective_fn, X)
 		
 		if self.save_popu_frac >= 1:
-			top_objs = heapq.nlargest(save_popu_frac, zip(range(self.save_popu_frac),objective_objs), key=lambda x:x[1])
-		else:
-			top_objs = heapq.nlargest(popu_size*self.save_popu_frac, zip(range(self.save_popu_frac),objective_objs), key=lambda x:x[1])
-		top_objs = [x[0] for x in top_objs]
-		
-		self.saved_popu = zip(objective_objs[top_objs], X[top_objs])
+			top_objs = heapq.nsmallest(int(self.save_popu_frac), zip(range(self.popu_size),objective_objs), key=lambda x:x[1])
+			top_objs = [x[0] for x in top_objs]
+			self.saved_popu = zip(objective_objs[top_objs], X[top_objs])
+			
+		elif self.save_popu_frac > 0:
+			top_objs = heapq.nsmallest(int(self.popu_size*self.save_popu_frac), zip(range(self.popu_size),objective_objs), key=lambda x:x[1])
+			top_objs = [x[0] for x in top_objs]
+			self.saved_popu = zip([objective_objs[x] for x in top_objs], X[top_objs])
 		
 		return self
 		
@@ -125,4 +132,3 @@ class GeneticAlgorithm():
 
 	def nbest(self, nbest=1):
 		return self.saved_population[:nbest]
-
