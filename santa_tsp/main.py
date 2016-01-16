@@ -114,7 +114,7 @@ def cluster_status(data_pts):
 		return _split, _wrw
 
 def heuristic_I(routes):
-	print "--- Heuristic II ---------------"
+	print "--- Heuristic I ----------------"
 	
 	_changed = False
 	
