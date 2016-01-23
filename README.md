@@ -1,6 +1,6 @@
 # kaggle
 
-
+---------------------------------------------
 sudo apt-get install python-pip python-dev build-essential build-essential python-dev python-setuptools python-numpy python-scipy libatlas-dev libatlas3gf-base python-matplotlib
 
 sudo apt-get install nose cython git
@@ -17,6 +17,7 @@ cd ..
 
 nosetests -v sklearn
 
+-------------------------------------------
 
 sudo apt-get install python-pip
 
