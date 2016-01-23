@@ -1,5 +1,8 @@
 # kaggle
 
+sudo apt-get install build-essential python-dev python-setuptools python-numpy python-scipy libatlas-dev libatlas3gf-base python-pip \n
+pip install -U scikit-learn
+
 sudo apt-get install python-pip python-dev build-essential build-essential python-dev python-setuptools python-numpy python-scipy libatlas-dev libatlas3gf-base python-matplotlib
 
 sudo apt-get install nose cython git
