@@ -1,15 +1,15 @@
 This repo contains code for the [Recruit Ponpare Coupon Prediction Challenge](https://www.kaggle.com/c/coupon-purchase-prediction/). It gives map@10 score 0.0072 on Private Leaderboard.
 
 
-This was executed and tested on r3.8xlarge ami on AWS. Execution requires R 3.2.2 along with the package xgboost and others as mentioned in RunME.R.
+This was executed and tested on r3.8xlarge ami on AWS. Execution requires R 3.2.2 along with the package xgboost and others as mentioned in RUNME.R.
 
 **To run do the following:**
 
 1. [Download the data](https://www.kaggle.com/c/coupon-purchase-prediction/data)
 2. Download the repo at the same location.
 3. Create a new folder 'raw_data' and unzip the data files in the folder.
-4. Install packages as required in RunMe.R
-5. Modify paths and run RunsMe.R
+4. Install packages as required in RUNME.R
+5. Modify paths and run RUNME.R
 6. A submission folder is then generated containing the submissions.
 
 
