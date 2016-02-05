@@ -1,6 +1,6 @@
 This repo contains code for the [Recruit Ponpare Coupon Prediction Challenge](https://www.kaggle.com/c/coupon-purchase-prediction/). It gives map@10 score 0.0072 on Private Leaderboard.
 
-**Platform Used:** - r3.8xlarge ami | AWS
+**Platform Used:** r3.8xlarge ami - AWS
 
 **Rquirement:**
 
