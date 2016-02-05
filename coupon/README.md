@@ -1,7 +1,13 @@
 This repo contains code for the [Recruit Ponpare Coupon Prediction Challenge](https://www.kaggle.com/c/coupon-purchase-prediction/). It gives map@10 score 0.0072 on Private Leaderboard.
 
+**Platform Used:** - r3.8xlarge ami | AWS
 
-This was executed and tested on r3.8xlarge ami on AWS. Execution requires R 3.2.2 along with the package xgboost and others as mentioned in RUNME.R.
+**Rquirement:**
+
+1. R 3.2.2
+2. xgboost
+3. Mono 2.8.x or another recent .NET runtime (Mono 2.10.x recommended)
+4. Packages in RUNME.R
 
 **To run do the following:**
 
@@ -11,12 +17,6 @@ This was executed and tested on r3.8xlarge ami on AWS. Execution requires R 3.2.
 4. Install packages as required in RUNME.R
 5. Modify paths and run RUNME.R
 6. A submission folder is then generated containing the submissions.
-
-
-**NOTE on using MyMediaLite for Matrix Factorization:**
-
-The binaries of the required version of MyMediaLite are already cloned inside the code folder in this repo. Just fulfill the requirements for running MyMediaLite:
- - Mono 2.8.x or another recent .NET runtime (Mono 2.10.x recommended)
  
 
 Details about the implementation can be found in this blog post:
