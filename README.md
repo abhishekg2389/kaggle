@@ -28,8 +28,6 @@ sudo apt-get install python-pip
 
 sudo pip install cython
 
-sudo pip install xgboost
-
 sudo git clone https://github.com/scikit-learn/scikit-learn.git
 
 cd scikit-learn
@@ -41,3 +39,10 @@ sudo python setup.py install
 cd ..
 
 nosetests -v sklearn
+
+
+git clone --recursive https://github.com/dmlc/xgboost
+
+cd xgboost; make -j4
+
+cd python-package; sudo python setup.py install
