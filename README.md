@@ -28,6 +28,8 @@ sudo apt-get install python-pip
 
 sudo pip install cython
 
+sudo pip install xgboost
+
 sudo git clone https://github.com/scikit-learn/scikit-learn.git
 
 cd scikit-learn
