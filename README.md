@@ -46,3 +46,7 @@ git clone --recursive https://github.com/dmlc/xgboost
 cd xgboost; make -j4
 
 cd python-package; sudo python setup.py install
+
+pip install pandas
+
+sudo apt-get install python-tables
