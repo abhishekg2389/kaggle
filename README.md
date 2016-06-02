@@ -50,3 +50,12 @@ cd python-package; sudo python setup.py install
 pip install pandas
 
 sudo apt-get install python-tables
+
+----------------------------
+sudo apt-get install -y tightvncserver
+
+sudo apt-get install -y xfce4 xfce4-goodies
+
+sudo apt-get install autocutsel
+
+Add line in ~/.vnc/tightvncconfig or use in terminal in VNC Viewer : autocutsel -fork
