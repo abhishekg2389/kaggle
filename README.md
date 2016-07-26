@@ -59,3 +59,21 @@ sudo apt-get install -y xfce4 xfce4-goodies
 sudo apt-get install autocutsel
 
 Add line in ~/.vnc/tightvncconfig or use in terminal in VNC Viewer : autocutsel -fork
+
+------------------------------------
+Matlab on server : http://stackoverflow.com/questions/4931376/generating-matplotlib-graphs-without-a-running-x-server
+
+import matplotlib as mpl;mpl.use('Agg');import matplotlib.pyplot as plt
+
+------------------------------------
+Dropbox-Uploader : git clone https://github.com/andreafabrizi/Dropbox-Uploader/
+
+cd Dropbox-Uploader/
+
+chmod +x dropbox_uploader.sh
+
+./dropbox_uploader.sh
+
+Provide full access while creating and configuring app and then use following command to upload
+
+Dropbox-Uploader/dropbox_uploader.sh upload * /*
