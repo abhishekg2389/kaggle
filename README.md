@@ -80,3 +80,5 @@ Dropbox-Uploader/dropbox_uploader.sh upload * /*
 
 -------------------------------------
 sudo apt-get -y install r-base
+
+http://www.csie.ntu.edu.tw/~cjlin/cgi-bin/libmf.cgi?+http://www.csie.ntu.edu.tw/~cjlin/libmf+zip
