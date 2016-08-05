@@ -77,3 +77,6 @@ chmod +x dropbox_uploader.sh
 Provide full access while creating and configuring app and then use following command to upload
 
 Dropbox-Uploader/dropbox_uploader.sh upload * /*
+
+-------------------------------------
+sudo apt-get -y install r-base
