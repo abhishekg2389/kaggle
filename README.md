@@ -82,3 +82,16 @@ Dropbox-Uploader/dropbox_uploader.sh upload * /*
 sudo apt-get -y install r-base
 
 http://www.csie.ntu.edu.tw/~cjlin/cgi-bin/libmf.cgi?+http://www.csie.ntu.edu.tw/~cjlin/libmf+zip
+
+--------------------------------------
+sudo apt-get install libboost-program-options-dev libboost-python-dev libtool
+
+git clone git://github.com/JohnLangford/vowpal_wabbit.git
+
+cd vowpal_wabbit
+
+./autogen.sh
+
+./configure
+
+make
