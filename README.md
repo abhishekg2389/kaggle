@@ -32,6 +32,8 @@ sudo apt-get install -y xfce4 xfce4-goodies
 
 sudo apt-get install autocutsel
 
+autocutsel -s PRIMARY -fork
+
 Add line in ~/.vnc/tightvncconfig or use in terminal in VNC Viewer : autocutsel -fork
 
 ------------------------------------
