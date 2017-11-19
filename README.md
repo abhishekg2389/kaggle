@@ -18,6 +18,23 @@
   * sudo jupyter contrib nbextension install
   * sudo pip install yapf
   
+  1. `openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mykey.key -out mycert.pem`
+  2. `jupyter notebook --generate-config`
+  3. `jupyter notebook password`
+  4. `nano ~/.jupyter/jupyter_notebook_config.json` with below configurations
+```
+{
+  "NotebookApp": {
+    "password": "sha1:bbd262748b3b:e28e5c7846dc72a7a07b67096e1938711dca37d7",
+    "certfile": "/home/ubuntu/mycert.pem",
+    "keyfile": "/home/ubuntu/mykey.key",
+    "ip": "*",
+    "port": 9999
+  }
+}
+```
+  5. `nohup jupyter notebook &`
+  
   ## XgBoost
   * git clone --recursive https://github.com/dmlc/xgboost
   * cd xgboost; make -j4
