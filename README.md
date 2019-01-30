@@ -4,7 +4,7 @@ InteractiveShell.ast_node_interactivity = "all"
 # kaggle
   ## Basic libraries
   * sudo apt-get update
-  * sudo apt-get install python-pip python-dev build-essential build-essential python-dev python-setuptools python-numpy python-scipy libatlas-dev python-matplotlib lynx htop git
+  * sudo apt-get install python-pip python-dev build-essential build-essential python-dev python-setuptools python-numpy python-scipy libatlas-base-dev python-matplotlib lynx htop git
   
   ## Scikit-learn
   * sudo pip install cython
