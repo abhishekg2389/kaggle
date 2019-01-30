@@ -7,6 +7,8 @@ InteractiveShell.ast_node_interactivity = "all"
   * sudo apt-get install python-pip python-dev build-essential build-essential python-dev python-setuptools python-numpy python-scipy libatlas-base-dev python-matplotlib lynx htop git
   
   ## Scikit-learn
+  * sudo pip install scikit-learn
+  
   * sudo pip install cython
   * sudo git clone https://github.com/scikit-learn/scikit-learn.git
   * cd scikit-learn
