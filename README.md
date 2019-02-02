@@ -5,7 +5,7 @@ InteractiveShell.ast_node_interactivity = "all"
   ## Basic libraries
   * sudo apt-get update
   * sudo apt-get install python-pip python-dev build-essential build-essential python-dev python-setuptools python-numpy python-scipy libatlas-base-dev python-matplotlib lynx htop git
-  * sudo pip install scikit-learn future jupyter jupyter_contrib_nbextensions yapf pandas
+  * sudo pip install scikit-learn future jupyter jupyter_contrib_nbextensions yapf pandas seaborn
   
   ## Scikit-learn
   * sudo pip install scikit-learn
