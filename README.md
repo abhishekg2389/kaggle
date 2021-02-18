@@ -22,11 +22,9 @@ InteractiveShell.ast_node_interactivity = "all"
   * cd ..
   
   ## Jupyter
-  * sudo pip install --upgrade pip
-  * sudo pip install jupyter
+  * sudo pip install jupyter yapf
   * sudo pip install jupyter_contrib_nbextensions
   * sudo jupyter contrib nbextension install
-  * sudo pip install yapf
   
   1. `openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mykey.key -out mycert.pem`
   2. `jupyter notebook --generate-config`
@@ -39,7 +37,9 @@ InteractiveShell.ast_node_interactivity = "all"
     "certfile": "/home/ubuntu/mycert.pem",
     "keyfile": "/home/ubuntu/mykey.key",
     "ip": "*",
-    "port": 9999
+    "port": 9999,
+    "allow_origin": "*",
+    "open_borwser": False
   }
 }
 ```
