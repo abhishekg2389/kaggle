@@ -4,7 +4,11 @@ InteractiveShell.ast_node_interactivity = "all"
 # kaggle
   ## Basic libraries
   * sudo apt-get update
-  * sudo apt-get install python-pip python-dev build-essential build-essential python-dev python-setuptools python-numpy python-scipy libatlas-base-dev python-matplotlib lynx htop git
+  * sudo apt-get install python-pip
+  * sudo pip install --upgrade pip
+  * sudo pip install --upgrade setuptools
+  * sudo pip install python-dev build-essential build-essential python-dev python-setuptools python-numpy python-scipy libatlas-base-dev python-matplotlib 
+  * sudo pip install lynx htop git
   * sudo pip install scikit-learn future jupyter jupyter_contrib_nbextensions yapf pandas seaborn hyperopt lightgbm tensorflow keras
   
   ## Scikit-learn
