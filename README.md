@@ -34,12 +34,12 @@ InteractiveShell.ast_node_interactivity = "all"
 {
   "NotebookApp": {
     "password": "sha1:bbd262748b3b:e28e5c7846dc72a7a07b67096e1938711dca37d7",
-    "certfile": "/home/ubuntu/mycert.pem",
-    "keyfile": "/home/ubuntu/mykey.key",
+    # "certfile": "/home/ubuntu/mycert.pem", # required for https
+    # "keyfile": "/home/ubuntu/mykey.key", # required for https
     "ip": "*",
     "port": 9999,
     "allow_origin": "*",
-    "open_borwser": False
+    "open_borwser": false
   }
 }
 ```
