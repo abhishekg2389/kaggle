@@ -25,6 +25,8 @@ InteractiveShell.ast_node_interactivity = "all"
   * sudo pip install jupyter yapf
   * sudo pip install jupyter_contrib_nbextensions
   * sudo jupyter contrib nbextension install
+  * Run Jupyter using below command (password: abhi)
+    `jupyter notebook --NotebookApp.allow_origin="0.0.0.0" --NotebookApp.port=9999 --NotebookApp.ip="0.0.0.0" --NotebookApp.password="sha1:927beb7a0a27:d988c1cc9e0f9103df4ea7b98eeb95346f024e61"`
   
   1. `openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mykey.key -out mycert.pem`
   2. `jupyter notebook --generate-config`
